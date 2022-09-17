@@ -1,0 +1,21 @@
+{
+  "name": "eacbb",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc -p .",
+    "start:build": "npm run build -- -w",
+    "start:dev": "nodemon"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.16",
+    "@types/uuid": "^8.3.4",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.19",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "node-fetch": "^3.2.10",
+    "uuid": "^9.0.0"
+  }
+}

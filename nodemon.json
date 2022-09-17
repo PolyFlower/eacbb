@@ -1,0 +1,7 @@
+{
+    "watch": ["src/**/*.ts"],
+    "ext": ".ts",
+    "ignore": ["src/**/*.spec.ts"],
+    "exec": "cross-env NODE_ENV=dev TS_NODE_FILES=true TS_NODE_TRANSPILE_ONLY=true ts-node -r ts-node/register ./src/main.ts"
+  }
+  
