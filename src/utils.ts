@@ -40,7 +40,8 @@ export namespace Utils {
       fileBuffer.copy(signatureBuffer, 0, 0, signature.length);
       return signatureBuffer.compare(Buffer.from(signature)) == 0 ? true : false;
     }
-
+  }
+  export namespace Memory {
     /**
      * @param {Buffer} [fileBuffer] Buffer with image
      * @param {number} [size=fileBuffer.byteLength] Size of image
