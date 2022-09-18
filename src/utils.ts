@@ -2,7 +2,7 @@ import { constants } from "fs";
 import { FileHandle, access, open, readFile } from "fs/promises";
 
 export namespace Utils {
-  export namespace File {
+  export namespace FileSystem {
     /**
      * Opens handle with read permission to file at `path`.
      * @param [path] Path to file.
