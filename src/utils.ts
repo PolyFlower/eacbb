@@ -1,7 +1,7 @@
 import { constants } from "fs";
 import { FileHandle, access, open, readFile } from "fs/promises";
 import axios, { AxiosRequestHeaders } from "axios";
-import { randomUUID } from "crypto";
+import { randomUUID, createHash } from "crypto";
 
 export namespace Utils {
   export namespace FileSystem {
@@ -169,6 +169,15 @@ export namespace Utils {
         }
         // image[0] -= image[1];
       }
+    }
+
+    /**
+     * Computes SHA1 hash for cache like EAC does
+     * @param {Buffer} [buffer] Cache file buffer
+     * @return {string} Returns hash string in hex
+     */
+    export function GetSHA1Hash(buffer: Buffer): string {
+      return createHash("sha1").update(buffer).digest("hex");
     }
   }
 }
