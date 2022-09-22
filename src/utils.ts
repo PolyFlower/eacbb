@@ -1,36 +1,8 @@
-import { constants } from "fs";
-import { FileHandle, access, open, readFile } from "fs/promises";
 import axios, { AxiosRequestHeaders } from "axios";
 import { randomUUID, createHash } from "crypto";
 
 export namespace Utils {
   export namespace FileSystem {
-    /**
-     * Opens handle with read permission to file at `path`.
-     * @param [path] Path to file.
-     * @return Valid handle or null otherwise.
-     */
-    export async function OpenHandle(path: string): Promise<FileHandle> {
-      const hasAccess: boolean = await access(path, constants.R_OK)
-        .then(() => true)
-        .catch(() => false);
-      if (hasAccess) {
-        const handle: FileHandle = await open(path, "r");
-        return handle;
-      }
-      return null;
-    }
-
-    /**
-     * Reads file image from opened `handle` into `byteStream`
-     * @param [handle] File handle to be read from
-     * @return Buffer containing file image
-     */
-    export async function CreateByteStream(handle: FileHandle): Promise<Buffer> {
-      const byteStream: Buffer = await readFile(handle);
-      return byteStream;
-    }
-
     /**
      * Verifies PE signature by comparing `signature` bytes with `fileBuffer`.
      * @param [fileBuffer] Buffer containing file image
@@ -43,6 +15,7 @@ export namespace Utils {
       return signatureBuffer.compare(Buffer.from(signature)) == 0 ? true : false;
     }
   }
+
   export namespace Memory {
     /**
      * @param {Buffer} [fileBuffer] Buffer with image
